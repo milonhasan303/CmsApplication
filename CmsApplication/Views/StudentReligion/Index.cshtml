@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CmsApplication.Models.student_religion>
+
+@{
+    ViewBag.Title = "Index";
+
+
+    System.Collections.Hashtable religions = new System.Collections.Hashtable();
+
+    religions = (System.Collections.Hashtable )TempData["religions"];
+    
+}
+
+<h2>Index</h2>
+ 
+@Html.Partial("_Create");
+
+
+    <table class="table">
+        <tr>
+            <th>
+                <h2>Religions</h2>
+            </th>
+            <th></th>
+        </tr>
+        @{
+    foreach (System.Collections.DictionaryEntry item in religions){
+        <tr>
+            <td>
+                @item.Value
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Key }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Key }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Key })
+            </td>
+        </tr>
+    }
+}
+    </table>
+
+
+@*@{
+    foreach (System.Collections.DictionaryEntry item in religions)
+    {
+        <h2>@item.Key  ---   @item.Value</h2>
+    }
+}*@

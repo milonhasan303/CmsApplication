@@ -1,0 +1,40 @@
+﻿@model IEnumerable<CmsApplication.Models.division>
+
+@{
+    ViewBag.Title = "Index";
+
+
+    System.Collections.Hashtable divisions = new System.Collections.Hashtable();
+
+    divisions = (System.Collections.Hashtable)TempData["divisions"];
+
+}
+
+<h2>Index</h2>
+
+@Html.Partial("_Create")
+
+
+<table class="table">
+    <tr>
+        <th>
+            <h2>Division</h2>
+        </th>
+        <th></th>
+    </tr>
+   
+@foreach (System.Collections.DictionaryEntry item in divisions)
+{
+    <tr>
+        <td>
+            @item.Value
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Key }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Key}) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Key})
+        </td>
+    </tr>
+}
+
+</table>

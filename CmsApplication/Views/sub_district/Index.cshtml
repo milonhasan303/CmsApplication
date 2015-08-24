@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CmsApplication.Models.sub_district>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.sub_district_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.district.district_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.sub_district_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.district.district_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.sub_district_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.sub_district_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.sub_district_id })
+        </td>
+    </tr>
+}
+
+</table>

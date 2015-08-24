@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="cmsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="admission_form">
+    <Key>
+      <PropertyRef Name="admission_student_id" />
+    </Key>
+    <Property Name="admission_student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="student_full_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_father_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_mother_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_address_id" Type="Int32" Nullable="false" />
+    <Property Name="father_education" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mohter_education" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="father_profession" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_refarence" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_dob" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="student_blood_group" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_nationality" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_religion_id" Type="Int32" Nullable="false" />
+    <Property Name="student_exam_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_department_id" Type="Int32" Nullable="false" />
+    <Property Name="student_result" Type="Double" Nullable="false" />
+    <Property Name="student_passing_year" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="student_school_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_father_yearly_income" Type="Int64" Nullable="false" />
+    <Property Name="student_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_apply_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="student_image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_ssc_roll" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_ssc_registration_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_admission_result" Type="Boolean" Nullable="false" />
+    <Property Name="student_admission_password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="admission_student_address" Relationship="Self.FK_admission_frm_admission_student_address" FromRole="admission_form" ToRole="admission_student_address" />
+    <NavigationProperty Name="student_religion" Relationship="Self.FK_admission_frm_student_religion" FromRole="admission_form" ToRole="student_religion" />
+  </EntityType>
+  <EntityType Name="admission_student_address">
+    <Key>
+      <PropertyRef Name="student_address_id" />
+    </Key>
+    <Property Name="student_address_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="admission_student_id" Type="Int32" Nullable="false" />
+    <Property Name="parmanent_village" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="parmanent_post" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="parmanent_post_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="parmanent_sub_district_id" Type="Int32" Nullable="false" />
+    <Property Name="present_sub_district_id" Type="Int32" Nullable="false" />
+    <Property Name="present_village" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="present_post" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="present_post_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="mobile_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="admission_form" Relationship="Self.FK_admission_frm_admission_student_address" FromRole="admission_student_address" ToRole="admission_form" />
+    <NavigationProperty Name="sub_district" Relationship="Self.FK_admission_student_address_sub_district" FromRole="admission_student_address" ToRole="sub_district" />
+    <NavigationProperty Name="sub_district1" Relationship="Self.FK_admission_student_address_sub_district1" FromRole="admission_student_address" ToRole="sub_district" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="department_name">
+    <Key>
+      <PropertyRef Name="department_id" />
+    </Key>
+    <Property Name="department_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="department_name1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="subject_category" Relationship="Self.FK_subject_category_department_name" FromRole="department_name" ToRole="subject_category" />
+  </EntityType>
+  <EntityType Name="district">
+    <Key>
+      <PropertyRef Name="district_id" />
+    </Key>
+    <Property Name="district_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="district_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="division_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="division" Relationship="Self.FK_district_division" FromRole="district" ToRole="division" />
+    <NavigationProperty Name="sub_district" Relationship="Self.FK_sub_district_district" FromRole="district" ToRole="sub_district" />
+  </EntityType>
+  <EntityType Name="division">
+    <Key>
+      <PropertyRef Name="division_id" />
+    </Key>
+    <Property Name="division_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="division_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="districts" Relationship="Self.FK_district_division" FromRole="division" ToRole="district" />
+  </EntityType>
+  <EntityType Name="exam_type">
+    <Key>
+      <PropertyRef Name="exam_type_id" />
+    </Key>
+    <Property Name="exam_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="exam_type_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="results" Relationship="Self.FK_result_exam_type" FromRole="exam_type" ToRole="result" />
+  </EntityType>
+  <EntityType Name="result">
+    <Key>
+      <PropertyRef Name="result_id" />
+    </Key>
+    <Property Name="result_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="exam_type_id" Type="Int32" Nullable="false" />
+    <Property Name="student_id" Type="Int32" Nullable="false" />
+    <Property Name="student_selected_subject_id" Type="Int32" Nullable="false" />
+    <Property Name="subject_gpa" Type="Double" Nullable="false" />
+    <Property Name="gpa" Type="Double" Nullable="false" />
+    <NavigationProperty Name="exam_type" Relationship="Self.FK_result_exam_type" FromRole="result" ToRole="exam_type" />
+    <NavigationProperty Name="student_info" Relationship="Self.FK_result_student_info" FromRole="result" ToRole="student_info" />
+    <NavigationProperty Name="student_selected_subject" Relationship="Self.FK_result_student_selected_subject" FromRole="result" ToRole="student_selected_subject" />
+  </EntityType>
+  <EntityType Name="student_department">
+    <Key>
+      <PropertyRef Name="student_department_id" />
+    </Key>
+    <Property Name="student_department_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="student_department_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="student_info">
+    <Key>
+      <PropertyRef Name="student_id" />
+    </Key>
+    <Property Name="student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="student_full_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_father_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_mother_name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="student_father_mobile_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_mobile_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_department_id" Type="Int32" Nullable="false" />
+    <Property Name="student_image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_dob" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="student_session" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_passing_year" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="student_hsc_roll" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_hsc_registration_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="student_active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="results" Relationship="Self.FK_result_student_info" FromRole="student_info" ToRole="result" />
+  </EntityType>
+  <EntityType Name="student_religion">
+    <Key>
+      <PropertyRef Name="student_religion_id" />
+    </Key>
+    <Property Name="student_religion_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="student_religion_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="admission_form" Relationship="Self.FK_admission_frm_student_religion" FromRole="student_religion" ToRole="admission_form" />
+  </EntityType>
+  <EntityType Name="student_selected_subject">
+    <Key>
+      <PropertyRef Name="student_selected_subject_id" />
+    </Key>
+    <Property Name="student_selected_subject_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="student_id" Type="Int32" Nullable="false" />
+    <Property Name="subject_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="results" Relationship="Self.FK_result_student_selected_subject" FromRole="student_selected_subject" ToRole="result" />
+    <NavigationProperty Name="subject" Relationship="Self.FK_student_selected_subject_subject" FromRole="student_selected_subject" ToRole="subject" />
+  </EntityType>
+  <EntityType Name="sub_district">
+    <Key>
+      <PropertyRef Name="sub_district_id" />
+    </Key>
+    <Property Name="sub_district_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sub_district_name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="district_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="admission_student_address" Relationship="Self.FK_admission_student_address_sub_district" FromRole="sub_district" ToRole="admission_student_address" />
+    <NavigationProperty Name="admission_student_address1" Relationship="Self.FK_admission_student_address_sub_district1" FromRole="sub_district" ToRole="admission_student_address" />
+    <NavigationProperty Name="district" Relationship="Self.FK_sub_district_district" FromRole="sub_district" ToRole="district" />
+  </EntityType>
+  <EntityType Name="subject">
+    <Key>
+      <PropertyRef Name="subject_id" />
+    </Key>
+    <Property Name="subject_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="subject_category_id" Type="Int32" Nullable="false" />
+    <Property Name="subject_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="student_selected_subject" Relationship="Self.FK_student_selected_subject_subject" FromRole="subject" ToRole="student_selected_subject" />
+    <NavigationProperty Name="subject_category" Relationship="Self.FK_subject_subject_category" FromRole="subject" ToRole="subject_category" />
+  </EntityType>
+  <EntityType Name="subject_category">
+    <Key>
+      <PropertyRef Name="subject_category_id" />
+    </Key>
+    <Property Name="subject_category_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="department_id" Type="Int32" Nullable="false" />
+    <Property Name="subject_category_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="department_name" Relationship="Self.FK_subject_category_department_name" FromRole="subject_category" ToRole="department_name" />
+    <NavigationProperty Name="subjects" Relationship="Self.FK_subject_subject_category" FromRole="subject_category" ToRole="subject" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="teacher_id" />
+    </Key>
+    <Property Name="teacher_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="teacher_full_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="teacher_degination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="teacher_eduaction" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="teacher_image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="teacher_join_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="teacher_department_id" Type="Int32" Nullable="false" />
+    <Property Name="teacher_active" Type="Boolean" Nullable="false" />
+    <Property Name="teacher_address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="teacher_mobile_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="teacher_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="teacher_department" Relationship="Self.FK_teacher_teacher_department" FromRole="teacher" ToRole="teacher_department" />
+  </EntityType>
+  <EntityType Name="teacher_department">
+    <Key>
+      <PropertyRef Name="teacher_department_id" />
+    </Key>
+    <Property Name="teacher_department_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="teacher_department_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="teachers" Relationship="Self.FK_teacher_teacher_department" FromRole="teacher_department" ToRole="teacher" />
+  </EntityType>
+  <EntityType Name="test">
+    <Key>
+      <PropertyRef Name="testid" />
+    </Key>
+    <Property Name="testid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="test_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_admission_frm_admission_student_address">
+    <End Role="admission_student_address" Type="Self.admission_student_address" Multiplicity="1" />
+    <End Role="admission_form" Type="Self.admission_form" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admission_student_address">
+        <PropertyRef Name="student_address_id" />
+      </Principal>
+      <Dependent Role="admission_form">
+        <PropertyRef Name="student_address_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_admission_frm_student_religion">
+    <End Role="student_religion" Type="Self.student_religion" Multiplicity="1" />
+    <End Role="admission_form" Type="Self.admission_form" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student_religion">
+        <PropertyRef Name="student_religion_id" />
+      </Principal>
+      <Dependent Role="admission_form">
+        <PropertyRef Name="student_religion_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_admission_student_address_sub_district">
+    <End Role="sub_district" Type="Self.sub_district" Multiplicity="1" />
+    <End Role="admission_student_address" Type="Self.admission_student_address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sub_district">
+        <PropertyRef Name="sub_district_id" />
+      </Principal>
+      <Dependent Role="admission_student_address">
+        <PropertyRef Name="parmanent_sub_district_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_admission_student_address_sub_district1">
+    <End Role="sub_district" Type="Self.sub_district" Multiplicity="1" />
+    <End Role="admission_student_address" Type="Self.admission_student_address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sub_district">
+        <PropertyRef Name="sub_district_id" />
+      </Principal>
+      <Dependent Role="admission_student_address">
+        <PropertyRef Name="present_sub_district_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subject_category_department_name">
+    <End Role="department_name" Type="Self.department_name" Multiplicity="1" />
+    <End Role="subject_category" Type="Self.subject_category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="department_name">
+        <PropertyRef Name="department_id" />
+      </Principal>
+      <Dependent Role="subject_category">
+        <PropertyRef Name="department_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_district_division">
+    <End Role="division" Type="Self.division" Multiplicity="1" />
+    <End Role="district" Type="Self.district" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="division">
+        <PropertyRef Name="division_id" />
+      </Principal>
+      <Dependent Role="district">
+        <PropertyRef Name="division_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sub_district_district">
+    <End Role="district" Type="Self.district" Multiplicity="1" />
+    <End Role="sub_district" Type="Self.sub_district" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="district">
+        <PropertyRef Name="district_id" />
+      </Principal>
+      <Dependent Role="sub_district">
+        <PropertyRef Name="district_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_result_exam_type">
+    <End Role="exam_type" Type="Self.exam_type" Multiplicity="1" />
+    <End Role="result" Type="Self.result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="exam_type">
+        <PropertyRef Name="exam_type_id" />
+      </Principal>
+      <Dependent Role="result">
+        <PropertyRef Name="exam_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_result_student_info">
+    <End Role="student_info" Type="Self.student_info" Multiplicity="1" />
+    <End Role="result" Type="Self.result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student_info">
+        <PropertyRef Name="student_id" />
+      </Principal>
+      <Dependent Role="result">
+        <PropertyRef Name="student_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_result_student_selected_subject">
+    <End Role="student_selected_subject" Type="Self.student_selected_subject" Multiplicity="1" />
+    <End Role="result" Type="Self.result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student_selected_subject">
+        <PropertyRef Name="student_selected_subject_id" />
+      </Principal>
+      <Dependent Role="result">
+        <PropertyRef Name="student_selected_subject_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_student_selected_subject_subject">
+    <End Role="subject" Type="Self.subject" Multiplicity="1" />
+    <End Role="student_selected_subject" Type="Self.student_selected_subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subject">
+        <PropertyRef Name="subject_id" />
+      </Principal>
+      <Dependent Role="student_selected_subject">
+        <PropertyRef Name="subject_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_subject_subject_category">
+    <End Role="subject_category" Type="Self.subject_category" Multiplicity="1" />
+    <End Role="subject" Type="Self.subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subject_category">
+        <PropertyRef Name="subject_category_id" />
+      </Principal>
+      <Dependent Role="subject">
+        <PropertyRef Name="subject_category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_teacher_teacher_department">
+    <End Role="teacher_department" Type="Self.teacher_department" Multiplicity="1" />
+    <End Role="teacher" Type="Self.teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teacher_department">
+        <PropertyRef Name="teacher_department_id" />
+      </Principal>
+      <Dependent Role="teacher">
+        <PropertyRef Name="teacher_department_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="cmsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="admission_form" EntityType="Self.admission_form" />
+    <EntitySet Name="admission_student_address" EntityType="Self.admission_student_address" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="department_name" EntityType="Self.department_name" />
+    <EntitySet Name="districts" EntityType="Self.district" />
+    <EntitySet Name="divisions" EntityType="Self.division" />
+    <EntitySet Name="exam_type" EntityType="Self.exam_type" />
+    <EntitySet Name="results" EntityType="Self.result" />
+    <EntitySet Name="student_department" EntityType="Self.student_department" />
+    <EntitySet Name="student_info" EntityType="Self.student_info" />
+    <EntitySet Name="student_religion" EntityType="Self.student_religion" />
+    <EntitySet Name="student_selected_subject" EntityType="Self.student_selected_subject" />
+    <EntitySet Name="sub_district" EntityType="Self.sub_district" />
+    <EntitySet Name="subjects" EntityType="Self.subject" />
+    <EntitySet Name="subject_category" EntityType="Self.subject_category" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="teachers" EntityType="Self.teacher" />
+    <EntitySet Name="teacher_department" EntityType="Self.teacher_department" />
+    <EntitySet Name="tests" EntityType="Self.test" />
+    <AssociationSet Name="FK_admission_frm_admission_student_address" Association="Self.FK_admission_frm_admission_student_address">
+      <End Role="admission_student_address" EntitySet="admission_student_address" />
+      <End Role="admission_form" EntitySet="admission_form" />
+    </AssociationSet>
+    <AssociationSet Name="FK_admission_frm_student_religion" Association="Self.FK_admission_frm_student_religion">
+      <End Role="student_religion" EntitySet="student_religion" />
+      <End Role="admission_form" EntitySet="admission_form" />
+    </AssociationSet>
+    <AssociationSet Name="FK_admission_student_address_sub_district" Association="Self.FK_admission_student_address_sub_district">
+      <End Role="sub_district" EntitySet="sub_district" />
+      <End Role="admission_student_address" EntitySet="admission_student_address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_admission_student_address_sub_district1" Association="Self.FK_admission_student_address_sub_district1">
+      <End Role="sub_district" EntitySet="sub_district" />
+      <End Role="admission_student_address" EntitySet="admission_student_address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subject_category_department_name" Association="Self.FK_subject_category_department_name">
+      <End Role="department_name" EntitySet="department_name" />
+      <End Role="subject_category" EntitySet="subject_category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_district_division" Association="Self.FK_district_division">
+      <End Role="division" EntitySet="divisions" />
+      <End Role="district" EntitySet="districts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sub_district_district" Association="Self.FK_sub_district_district">
+      <End Role="district" EntitySet="districts" />
+      <End Role="sub_district" EntitySet="sub_district" />
+    </AssociationSet>
+    <AssociationSet Name="FK_result_exam_type" Association="Self.FK_result_exam_type">
+      <End Role="exam_type" EntitySet="exam_type" />
+      <End Role="result" EntitySet="results" />
+    </AssociationSet>
+    <AssociationSet Name="FK_result_student_info" Association="Self.FK_result_student_info">
+      <End Role="student_info" EntitySet="student_info" />
+      <End Role="result" EntitySet="results" />
+    </AssociationSet>
+    <AssociationSet Name="FK_result_student_selected_subject" Association="Self.FK_result_student_selected_subject">
+      <End Role="student_selected_subject" EntitySet="student_selected_subject" />
+      <End Role="result" EntitySet="results" />
+    </AssociationSet>
+    <AssociationSet Name="FK_student_selected_subject_subject" Association="Self.FK_student_selected_subject_subject">
+      <End Role="subject" EntitySet="subjects" />
+      <End Role="student_selected_subject" EntitySet="student_selected_subject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_subject_subject_category" Association="Self.FK_subject_subject_category">
+      <End Role="subject_category" EntitySet="subject_category" />
+      <End Role="subject" EntitySet="subjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_teacher_teacher_department" Association="Self.FK_teacher_teacher_department">
+      <End Role="teacher_department" EntitySet="teacher_department" />
+      <End Role="teacher" EntitySet="teachers" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(cmsModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(cmsModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="cmsModelStoreContainer" CdmEntityContainer="cmsEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="cmsModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="admission_form">
+      <EntityTypeMapping TypeName="cmsModel.admission_form">
+        <MappingFragment StoreEntitySet="admission_form">
+          <ScalarProperty Name="admission_student_id" ColumnName="admission_student_id" />
+          <ScalarProperty Name="student_full_name" ColumnName="student_full_name" />
+          <ScalarProperty Name="student_father_name" ColumnName="student_father_name" />
+          <ScalarProperty Name="student_mother_name" ColumnName="student_mother_name" />
+          <ScalarProperty Name="student_address_id" ColumnName="student_address_id" />
+          <ScalarProperty Name="father_education" ColumnName="father_education" />
+          <ScalarProperty Name="mohter_education" ColumnName="mohter_education" />
+          <ScalarProperty Name="father_profession" ColumnName="father_profession" />
+          <ScalarProperty Name="student_refarence" ColumnName="student_refarence" />
+          <ScalarProperty Name="student_dob" ColumnName="student_dob" />
+          <ScalarProperty Name="student_blood_group" ColumnName="student_blood_group" />
+          <ScalarProperty Name="student_nationality" ColumnName="student_nationality" />
+          <ScalarProperty Name="student_religion_id" ColumnName="student_religion_id" />
+          <ScalarProperty Name="student_exam_name" ColumnName="student_exam_name" />
+          <ScalarProperty Name="student_department_id" ColumnName="student_department_id" />
+          <ScalarProperty Name="student_result" ColumnName="student_result" />
+          <ScalarProperty Name="student_passing_year" ColumnName="student_passing_year" />
+          <ScalarProperty Name="student_school_name" ColumnName="student_school_name" />
+          <ScalarProperty Name="student_father_yearly_income" ColumnName="student_father_yearly_income" />
+          <ScalarProperty Name="student_email" ColumnName="student_email" />
+          <ScalarProperty Name="student_apply_date" ColumnName="student_apply_date" />
+          <ScalarProperty Name="student_image" ColumnName="student_image" />
+          <ScalarProperty Name="student_ssc_roll" ColumnName="student_ssc_roll" />
+          <ScalarProperty Name="student_ssc_registration_no" ColumnName="student_ssc_registration_no" />
+          <ScalarProperty Name="student_admission_result" ColumnName="student_admission_result" />
+          <ScalarProperty Name="student_admission_password" ColumnName="student_admission_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="admission_student_address">
+      <EntityTypeMapping TypeName="cmsModel.admission_student_address">
+        <MappingFragment StoreEntitySet="admission_student_address">
+          <ScalarProperty Name="student_address_id" ColumnName="student_address_id" />
+          <ScalarProperty Name="admission_student_id" ColumnName="admission_student_id" />
+          <ScalarProperty Name="parmanent_village" ColumnName="parmanent_village" />
+          <ScalarProperty Name="parmanent_post" ColumnName="parmanent_post" />
+          <ScalarProperty Name="parmanent_post_code" ColumnName="parmanent_post_code" />
+          <ScalarProperty Name="parmanent_sub_district_id" ColumnName="parmanent_sub_district_id" />
+          <ScalarProperty Name="present_sub_district_id" ColumnName="present_sub_district_id" />
+          <ScalarProperty Name="present_village" ColumnName="present_village" />
+          <ScalarProperty Name="present_post" ColumnName="present_post" />
+          <ScalarProperty Name="present_post_code" ColumnName="present_post_code" />
+          <ScalarProperty Name="mobile_number" ColumnName="mobile_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="cmsModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="cmsModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="cmsModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="cmsModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="department_name">
+      <EntityTypeMapping TypeName="cmsModel.department_name">
+        <MappingFragment StoreEntitySet="department_name">
+          <ScalarProperty Name="department_id" ColumnName="department_id" />
+          <ScalarProperty Name="department_name1" ColumnName="department_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="districts">
+      <EntityTypeMapping TypeName="cmsModel.district">
+        <MappingFragment StoreEntitySet="district">
+          <ScalarProperty Name="district_id" ColumnName="district_id" />
+          <ScalarProperty Name="district_name" ColumnName="district_name" />
+          <ScalarProperty Name="division_id" ColumnName="division_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="divisions">
+      <EntityTypeMapping TypeName="cmsModel.division">
+        <MappingFragment StoreEntitySet="division">
+          <ScalarProperty Name="division_id" ColumnName="division_id" />
+          <ScalarProperty Name="division_name" ColumnName="division_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="exam_type">
+      <EntityTypeMapping TypeName="cmsModel.exam_type">
+        <MappingFragment StoreEntitySet="exam_type">
+          <ScalarProperty Name="exam_type_id" ColumnName="exam_type_id" />
+          <ScalarProperty Name="exam_type_name" ColumnName="exam_type_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="results">
+      <EntityTypeMapping TypeName="cmsModel.result">
+        <MappingFragment StoreEntitySet="result">
+          <ScalarProperty Name="result_id" ColumnName="result_id" />
+          <ScalarProperty Name="exam_type_id" ColumnName="exam_type_id" />
+          <ScalarProperty Name="student_id" ColumnName="student_id" />
+          <ScalarProperty Name="student_selected_subject_id" ColumnName="student_selected_subject_id" />
+          <ScalarProperty Name="subject_gpa" ColumnName="subject_gpa" />
+          <ScalarProperty Name="gpa" ColumnName="gpa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="student_department">
+      <EntityTypeMapping TypeName="cmsModel.student_department">
+        <MappingFragment StoreEntitySet="student_department">
+          <ScalarProperty Name="student_department_id" ColumnName="student_department_id" />
+          <ScalarProperty Name="student_department_name" ColumnName="student_department_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="student_info">
+      <EntityTypeMapping TypeName="cmsModel.student_info">
+        <MappingFragment StoreEntitySet="student_info">
+          <ScalarProperty Name="student_id" ColumnName="student_id" />
+          <ScalarProperty Name="student_full_name" ColumnName="student_full_name" />
+          <ScalarProperty Name="student_father_name" ColumnName="student_father_name" />
+          <ScalarProperty Name="student_mother_name" ColumnName="student_mother_name" />
+          <ScalarProperty Name="student_father_mobile_number" ColumnName="student_father_mobile_number" />
+          <ScalarProperty Name="student_address" ColumnName="student_address" />
+          <ScalarProperty Name="student_mobile_number" ColumnName="student_mobile_number" />
+          <ScalarProperty Name="student_email" ColumnName="student_email" />
+          <ScalarProperty Name="student_department_id" ColumnName="student_department_id" />
+          <ScalarProperty Name="student_image" ColumnName="student_image" />
+          <ScalarProperty Name="student_dob" ColumnName="student_dob" />
+          <ScalarProperty Name="student_session" ColumnName="student_session" />
+          <ScalarProperty Name="student_passing_year" ColumnName="student_passing_year" />
+          <ScalarProperty Name="student_hsc_roll" ColumnName="student_hsc_roll" />
+          <ScalarProperty Name="student_hsc_registration_no" ColumnName="student_hsc_registration_no" />
+          <ScalarProperty Name="student_active" ColumnName="student_active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="student_religion">
+      <EntityTypeMapping TypeName="cmsModel.student_religion">
+        <MappingFragment StoreEntitySet="student_religion">
+          <ScalarProperty Name="student_religion_id" ColumnName="student_religion_id" />
+          <ScalarProperty Name="student_religion_name" ColumnName="student_religion_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="student_selected_subject">
+      <EntityTypeMapping TypeName="cmsModel.student_selected_subject">
+        <MappingFragment StoreEntitySet="student_selected_subject">
+          <ScalarProperty Name="student_selected_subject_id" ColumnName="student_selected_subject_id" />
+          <ScalarProperty Name="student_id" ColumnName="student_id" />
+          <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sub_district">
+      <EntityTypeMapping TypeName="cmsModel.sub_district">
+        <MappingFragment StoreEntitySet="sub_district">
+          <ScalarProperty Name="sub_district_id" ColumnName="sub_district_id" />
+          <ScalarProperty Name="sub_district_name" ColumnName="sub_district_name" />
+          <ScalarProperty Name="district_id" ColumnName="district_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subjects">
+      <EntityTypeMapping TypeName="cmsModel.subject">
+        <MappingFragment StoreEntitySet="subject">
+          <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+          <ScalarProperty Name="subject_category_id" ColumnName="subject_category_id" />
+          <ScalarProperty Name="subject_name" ColumnName="subject_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subject_category">
+      <EntityTypeMapping TypeName="cmsModel.subject_category">
+        <MappingFragment StoreEntitySet="subject_category">
+          <ScalarProperty Name="subject_category_id" ColumnName="subject_category_id" />
+          <ScalarProperty Name="department_id" ColumnName="department_id" />
+          <ScalarProperty Name="subject_category_name" ColumnName="subject_category_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="cmsModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teachers">
+      <EntityTypeMapping TypeName="cmsModel.teacher">
+        <MappingFragment StoreEntitySet="teacher">
+          <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+          <ScalarProperty Name="teacher_full_name" ColumnName="teacher_full_name" />
+          <ScalarProperty Name="teacher_degination" ColumnName="teacher_degination" />
+          <ScalarProperty Name="teacher_eduaction" ColumnName="teacher_eduaction" />
+          <ScalarProperty Name="teacher_image" ColumnName="teacher_image" />
+          <ScalarProperty Name="teacher_join_date" ColumnName="teacher_join_date" />
+          <ScalarProperty Name="teacher_department_id" ColumnName="teacher_department_id" />
+          <ScalarProperty Name="teacher_active" ColumnName="teacher_active" />
+          <ScalarProperty Name="teacher_address" ColumnName="teacher_address" />
+          <ScalarProperty Name="teacher_mobile_number" ColumnName="teacher_mobile_number" />
+          <ScalarProperty Name="teacher_email" ColumnName="teacher_email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teacher_department">
+      <EntityTypeMapping TypeName="cmsModel.teacher_department">
+        <MappingFragment StoreEntitySet="teacher_department">
+          <ScalarProperty Name="teacher_department_id" ColumnName="teacher_department_id" />
+          <ScalarProperty Name="teacher_department_name" ColumnName="teacher_department_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tests">
+      <EntityTypeMapping TypeName="cmsModel.test">
+        <MappingFragment StoreEntitySet="test">
+          <ScalarProperty Name="testid" ColumnName="testid" />
+          <ScalarProperty Name="test_name" ColumnName="test_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="cmsModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="cmsModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="cmsModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="cmsModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="cmsModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="cmsModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="cmsModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="cmsModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="cmsModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="cmsModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,55 @@
+﻿@model CmsApplication.Models.division
+
+@{
+    ViewBag.Title = "Details";
+    
+     System.Collections.Hashtable districtHashtable = new System.Collections.Hashtable();
+
+    districtHashtable = (System.Collections.Hashtable)TempData["district"];
+}
+
+@*<h2>Details</h2>
+
+<div>
+    <h4>division</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.division_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.division_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.division_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+*@
+
+<table class="table">
+    <tr>
+        <th>
+            <h2>District</h2>
+        </th>
+        <th></th>
+    </tr>
+    @foreach (System.Collections.DictionaryEntry item in districtHashtable)
+    {
+        <tr>
+            <td>
+                @item.Value
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Districts", new { id = item.Key },null) |
+                @Html.ActionLink("Details", "Details","Districts", new { id = item.Key }, null)|
+                @Html.ActionLink("Delete", "Delete", "Districts", new { id = item.Key },null)
+
+            </td>
+        </tr>
+    }
+    </table>

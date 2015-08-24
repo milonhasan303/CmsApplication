@@ -1,0 +1,61 @@
+﻿@model CmsApplication.Models.district
+
+@{
+    ViewBag.Title = "Details";
+    System.Collections.Hashtable subDistrictHashtable = new System.Collections.Hashtable();
+
+    subDistrictHashtable = (System.Collections.Hashtable)TempData["subDistrict"];
+}
+
+@*<h2>Details</h2>
+
+<div>
+    <h4>district</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.district_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.district_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.division.division_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.division.division_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.district_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            <h2>Sub-District</h2>
+        </th>
+        <th></th>
+    </tr>
+    @foreach (System.Collections.DictionaryEntry item in subDistrictHashtable)
+    {
+        <tr>
+            <td>
+                @item.Value
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "SubDistrict", new { id = item.Key }, null) |
+                @Html.ActionLink("Details", "Details", new { id = item.Key }, null)|
+                @Html.ActionLink("Delete", "Delete", "SubDistrict", new { id = item.Key }, null)
+
+            </td>
+        </tr>
+    }
+</table>
+
+
