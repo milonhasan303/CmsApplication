@@ -111,14 +111,6 @@
     <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
     <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
   </EntityType>
-  <EntityType Name="department_name">
-    <Key>
-      <PropertyRef Name="department_id" />
-    </Key>
-    <Property Name="department_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="department_name1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="subject_category" Relationship="Self.FK_subject_category_department_name" FromRole="department_name" ToRole="subject_category" />
-  </EntityType>
   <EntityType Name="district">
     <Key>
       <PropertyRef Name="district_id" />
@@ -234,8 +226,8 @@
     <Property Name="subject_category_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="department_id" Type="Int32" Nullable="false" />
     <Property Name="subject_category_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="department_name" Relationship="Self.FK_subject_category_department_name" FromRole="subject_category" ToRole="department_name" />
     <NavigationProperty Name="subjects" Relationship="Self.FK_subject_subject_category" FromRole="subject_category" ToRole="subject" />
+    <NavigationProperty Name="group_name" Relationship="cmsModel.FK_subject_category_department_name1" FromRole="subject_category" ToRole="group_name" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -355,18 +347,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_subject_category_department_name">
-    <End Role="department_name" Type="Self.department_name" Multiplicity="1" />
-    <End Role="subject_category" Type="Self.subject_category" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="department_name">
-        <PropertyRef Name="department_id" />
-      </Principal>
-      <Dependent Role="subject_category">
-        <PropertyRef Name="department_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_district_division">
     <End Role="division" Type="Self.division" Multiplicity="1" />
     <End Role="district" Type="Self.district" Multiplicity="*" />
@@ -475,7 +455,6 @@
     <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
-    <EntitySet Name="department_name" EntityType="Self.department_name" />
     <EntitySet Name="districts" EntityType="Self.district" />
     <EntitySet Name="divisions" EntityType="Self.division" />
     <EntitySet Name="exam_type" EntityType="Self.exam_type" />
@@ -514,10 +493,6 @@
     <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-    </AssociationSet>
-    <AssociationSet Name="FK_subject_category_department_name" Association="Self.FK_subject_category_department_name">
-      <End Role="department_name" EntitySet="department_name" />
-      <End Role="subject_category" EntitySet="subject_category" />
     </AssociationSet>
     <AssociationSet Name="FK_district_division" Association="Self.FK_district_division">
       <End Role="division" EntitySet="divisions" />
@@ -585,6 +560,11 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="group_name" EntityType="cmsModel.group_name" />
+    <AssociationSet Name="FK_subject_category_department_name1" Association="cmsModel.FK_subject_category_department_name1">
+      <End Role="group_name" EntitySet="group_name" />
+      <End Role="subject_category" EntitySet="subject_category" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -597,4 +577,24 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <EntityType Name="group_name">
+    <Key>
+      <PropertyRef Name="department_id" />
+    </Key>
+    <Property Name="department_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="department_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="subject_category" Relationship="cmsModel.FK_subject_category_department_name1" FromRole="group_name" ToRole="subject_category" />
+  </EntityType>
+  <Association Name="FK_subject_category_department_name1">
+    <End Type="cmsModel.group_name" Role="group_name" Multiplicity="1" />
+    <End Type="cmsModel.subject_category" Role="subject_category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="group_name">
+        <PropertyRef Name="department_id" />
+      </Principal>
+      <Dependent Role="subject_category">
+        <PropertyRef Name="department_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

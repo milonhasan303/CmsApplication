@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c31cb79df4bb4fb7ab946e83fcfedfaa" Name="Diagram1" ZoomLevel="47">
+      <Diagram DiagramId="c31cb79df4bb4fb7ab946e83fcfedfaa" Name="Diagram1" ZoomLevel="106">
         <EntityTypeShape EntityType="cmsModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="cmsModel.admission_form" Width="1.5" PointX="9.75" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="cmsModel.admission_student_address" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
@@ -12,7 +12,6 @@
         <EntityTypeShape EntityType="cmsModel.AspNetUserClaim" Width="1.5" PointX="16.25" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="cmsModel.AspNetUserLogin" Width="1.5" PointX="16.25" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="cmsModel.AspNetUser" Width="1.5" PointX="14" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="cmsModel.department_name" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="cmsModel.district" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="cmsModel.division" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="cmsModel.exam_type" Width="1.5" PointX="7.5" PointY="14.25" IsExpanded="true" />
@@ -34,7 +33,6 @@
         <AssociationConnector Association="cmsModel.FK_admission_student_address_sub_district1" ManuallyRouted="false" />
         <AssociationConnector Association="cmsModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="cmsModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="cmsModel.FK_subject_category_department_name" ManuallyRouted="false" />
         <AssociationConnector Association="cmsModel.FK_district_division" ManuallyRouted="false" />
         <AssociationConnector Association="cmsModel.FK_sub_district_district" ManuallyRouted="false" />
         <AssociationConnector Association="cmsModel.FK_result_exam_type" ManuallyRouted="false" />
@@ -44,6 +42,8 @@
         <AssociationConnector Association="cmsModel.FK_subject_subject_category" ManuallyRouted="false" />
         <AssociationConnector Association="cmsModel.FK_teacher_teacher_department" ManuallyRouted="false" />
         <AssociationConnector Association="cmsModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="cmsModel.group_name" Width="1.5" PointX="0.5" PointY="10.625" />
+        <AssociationConnector Association="cmsModel.FK_subject_category_department_name1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

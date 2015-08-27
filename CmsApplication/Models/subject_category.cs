@@ -23,7 +23,7 @@ namespace CmsApplication.Models
         public int department_id { get; set; }
         public string subject_category_name { get; set; }
     
-        public virtual department_name department_name { get; set; }
         public virtual ICollection<subject> subjects { get; set; }
+        public virtual group_name group_name { get; set; }
     }
 }

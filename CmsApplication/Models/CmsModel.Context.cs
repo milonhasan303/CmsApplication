@@ -34,7 +34,6 @@ namespace CmsApplication.Models
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
-        public virtual DbSet<department_name> department_name { get; set; }
         public virtual DbSet<district> districts { get; set; }
         public virtual DbSet<division> divisions { get; set; }
         public virtual DbSet<exam_type> exam_type { get; set; }
@@ -50,6 +49,7 @@ namespace CmsApplication.Models
         public virtual DbSet<teacher> teachers { get; set; }
         public virtual DbSet<teacher_department> teacher_department { get; set; }
         public virtual DbSet<test> tests { get; set; }
+        public virtual DbSet<group_name> group_name { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

@@ -163,6 +163,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DistrictsController.cs" />
     <Compile Include="Controllers\DivisionsController.cs" />
+    <Compile Include="Controllers\GroupNameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentReligionController.cs" />
@@ -207,9 +208,6 @@
     <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>CmsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\department_name.cs">
-      <DependentUpon>CmsModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\district.cs">
       <DependentUpon>CmsModel.tt</DependentUpon>
     </Compile>
@@ -217,6 +215,9 @@
       <DependentUpon>CmsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\exam_type.cs">
+      <DependentUpon>CmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\group_name.cs">
       <DependentUpon>CmsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
@@ -366,6 +367,11 @@
     <Content Include="Views\sub_district\Index.cshtml" />
     <Content Include="Views\Divisions\_DistrictCreate.cshtml" />
     <Content Include="Views\Districts\_SubDistrictCreate.cshtml" />
+    <Content Include="Views\GroupName\Create.cshtml" />
+    <Content Include="Views\GroupName\Delete.cshtml" />
+    <Content Include="Views\GroupName\Details.cshtml" />
+    <Content Include="Views\GroupName\Edit.cshtml" />
+    <Content Include="Views\GroupName\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

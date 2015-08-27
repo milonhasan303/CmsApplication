@@ -12,15 +12,15 @@ namespace CmsApplication.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class department_name
+    public partial class group_name
     {
-        public department_name()
+        public group_name()
         {
             this.subject_category = new HashSet<subject_category>();
         }
     
         public int department_id { get; set; }
-        public string department_name1 { get; set; }
+        public string department_name { get; set; }
     
         public virtual ICollection<subject_category> subject_category { get; set; }
     }

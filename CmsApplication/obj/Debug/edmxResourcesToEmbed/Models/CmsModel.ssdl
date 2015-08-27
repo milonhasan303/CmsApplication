@@ -108,13 +108,6 @@
     <Property Name="AccessFailedCount" Type="int" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
   </EntityType>
-  <EntityType Name="department_name">
-    <Key>
-      <PropertyRef Name="department_id" />
-    </Key>
-    <Property Name="department_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="department_name" Type="varchar" MaxLength="100" Nullable="false" />
-  </EntityType>
   <EntityType Name="district">
     <Key>
       <PropertyRef Name="district_id" />
@@ -136,6 +129,13 @@
     </Key>
     <Property Name="exam_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="exam_type_name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="group_name">
+    <Key>
+      <PropertyRef Name="department_id" />
+    </Key>
+    <Property Name="department_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="department_name" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="result">
     <Key>
@@ -432,10 +432,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_subject_category_department_name">
-    <End Role="department_name" Type="Self.department_name" Multiplicity="1" />
+    <End Role="group_name" Type="Self.group_name" Multiplicity="1" />
     <End Role="subject_category" Type="Self.subject_category" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="department_name">
+      <Principal Role="group_name">
         <PropertyRef Name="department_id" />
       </Principal>
       <Dependent Role="subject_category">
@@ -507,10 +507,10 @@
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="department_name" EntityType="Self.department_name" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="district" EntityType="Self.district" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="division" EntityType="Self.division" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="exam_type" EntityType="Self.exam_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="group_name" EntityType="Self.group_name" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="result" EntityType="Self.result" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="student_department" EntityType="Self.student_department" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="student_info" EntityType="Self.student_info" Schema="dbo" store:Type="Tables" />
@@ -580,7 +580,7 @@
       <End Role="sub_district" EntitySet="sub_district" />
     </AssociationSet>
     <AssociationSet Name="FK_subject_category_department_name" Association="Self.FK_subject_category_department_name">
-      <End Role="department_name" EntitySet="department_name" />
+      <End Role="group_name" EntitySet="group_name" />
       <End Role="subject_category" EntitySet="subject_category" />
     </AssociationSet>
     <AssociationSet Name="FK_subject_subject_category" Association="Self.FK_subject_subject_category">
