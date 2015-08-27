@@ -1,4 +1,5 @@
-﻿@model CmsApplication.Models.district
+﻿@*@model CmsApplication.Models.district*@
+@model CmsApplication.Models.sub_district
 
 @{
     ViewBag.Title = "Details";
@@ -6,6 +7,8 @@
 
     subDistrictHashtable = (System.Collections.Hashtable)TempData["subDistrict"];
 }
+
+@Html.Partial("_SubDistrictCreate")
 
 @*<h2>Details</h2>
 
@@ -38,7 +41,7 @@
 <table class="table">
     <tr>
         <th>
-            <h2>Sub-District</h2>
+            <h2>Sub-District</h2>@ViewBag.dis
         </th>
         <th></th>
     </tr>

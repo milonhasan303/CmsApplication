@@ -364,6 +364,8 @@
     <Content Include="Views\sub_district\Details.cshtml" />
     <Content Include="Views\sub_district\Edit.cshtml" />
     <Content Include="Views\sub_district\Index.cshtml" />
+    <Content Include="Views\Divisions\_DistrictCreate.cshtml" />
+    <Content Include="Views\Districts\_SubDistrictCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using CmsApplication.Models;
 using System.Collections;
 
@@ -25,8 +26,14 @@ namespace CmsApplication.Controllers
             foreach (var item in divsion_list)
             {
                 divisions.Add(item.division_id,item.division_name);
+
+
+                //ViewData["div"] = divisions[item.division_id];
+                
             }
             TempData["divisions"] = divisions;
+            
+            //string value1 = (string)hashtable[300];
             return View();
           //  return View(db.divisions.ToList());
         }
@@ -45,16 +52,48 @@ namespace CmsApplication.Controllers
             foreach (var item in aDistrict)
             {
                 districtHashtable.Add(item.district_id,item.district_name);
+                
             }
-
+            var div = db.divisions.Single(m => m.division_id == id);
+            ViewBag.div = div.division_name;
             TempData["district"] = districtHashtable;
+
+            
+
             //division division = db.divisions.Find(id);
             //if (division == null)
             //{
             //    return HttpNotFound();
             //}
+            ViewBag.division_id = new SelectList(db.divisions, "division_id", "division_name");
+           
             return View();
         }
+
+
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Details([Bind(Include = "district_id,district_name,division_id")] district district)
+        {
+            if (ModelState.IsValid)
+            {
+                db.districts.Add(district);
+                db.SaveChanges();
+                //return RedirectToAction("Index");
+               // return View("Details", new { id = district.division_id });
+                return RedirectToAction("Details", new RouteValueDictionary(new { controller = "Divisions", action = "Details", Id = district.division_id }));
+            }
+            
+            ViewBag.division_id = new SelectList(db.divisions, "division_id", "division_name", district.division_id);
+            
+            return View(district);
+        }
+
+
+
 
         // GET: Divisions/Create
 

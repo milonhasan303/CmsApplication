@@ -7,8 +7,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using CmsApplication.Models;
 using System.Web.Routing;
+using CmsApplication.Models;
 
 namespace CmsApplication.Controllers
 {
@@ -33,7 +33,11 @@ namespace CmsApplication.Controllers
             {
                 subDistrictHashtable.Add(item.sub_district_id,item.sub_district_name);
             }
+            var dis = db.districts.Single(d => d.district_id == id);
+            ViewBag.dis = dis.district_name;
             TempData["subDistrict"] = subDistrictHashtable;
+
+            ViewBag.district_id = new SelectList(db.districts, "district_id", "district_name");
             return View();
             //district district = db.districts.Find(id);
             //if (district == null)
@@ -41,6 +45,23 @@ namespace CmsApplication.Controllers
             //    return HttpNotFound();
             //}
             //return View(district);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Details([Bind(Include = "sub_district_id,sub_district_name,district_id")] sub_district sub_district)
+        {
+            if (ModelState.IsValid)
+            {
+                db.sub_district.Add(sub_district);
+                db.SaveChanges();
+
+                return RedirectToAction("Details", new RouteValueDictionary(new { controller = "Districts", action = "Details", Id = sub_district.district_id }));
+              //  return RedirectToAction("Index");
+            }
+
+            ViewBag.district_id = new SelectList(db.districts, "district_id", "district_name", sub_district.district_id);
+            return View(sub_district);
         }
 
         // GET: Districts/Create
@@ -82,7 +103,6 @@ namespace CmsApplication.Controllers
             }
             ViewBag.division_id = new SelectList(db.divisions, "division_id", "division_name", district.division_id);
 
-            
            
             return View(district);
            
@@ -97,17 +117,13 @@ namespace CmsApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                //var division_id = district.division_id;
-
                 db.Entry(district).State = EntityState.Modified;
                 db.SaveChanges();
-
+                //return RedirectToAction("Index");
                 return RedirectToAction("Details", new RouteValueDictionary(new { controller = "Divisions", action = "Details", Id = district.division_id }));
 
-                //return RedirectToAction("Index");
             }
             ViewBag.division_id = new SelectList(db.divisions, "division_id", "division_name", district.division_id);
-
             return View(district);
            
         }
@@ -135,7 +151,9 @@ namespace CmsApplication.Controllers
             district district = db.districts.Find(id);
             db.districts.Remove(district);
             db.SaveChanges();
-            return RedirectToAction("Index");
+
+           // return RedirectToAction("Index");
+            return RedirectToAction("Details", new RouteValueDictionary(new { controller = "Divisions", action = "Details", Id = district.division_id }));
         }
 
         protected override void Dispose(bool disposing)

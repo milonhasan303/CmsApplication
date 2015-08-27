@@ -6,8 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using CmsApplication.Models;
 using System.Web.Routing;
+using CmsApplication.Models;
 
 namespace CmsApplication.Controllers
 {
@@ -89,15 +89,8 @@ namespace CmsApplication.Controllers
             {
                 db.Entry(sub_district).State = EntityState.Modified;
                 db.SaveChanges();
-
-                var district_id = sub_district.district_id;
-
-                //return RedirectToAction("Main", new RouteValueDictionary( new { controller = controllerName, action = "Main", Id = Id }));
-
                 //return RedirectToAction("Index");
-
-                return RedirectToAction("Details", new RouteValueDictionary(new { controller = "Districts", action = "Details", Id = district_id }));
-
+                return RedirectToAction("Details", new RouteValueDictionary(new { controller = "Districts", action = "Details", Id = sub_district.district_id }));
             }
             ViewBag.district_id = new SelectList(db.districts, "district_id", "district_name", sub_district.district_id);
             return View(sub_district);
@@ -126,8 +119,8 @@ namespace CmsApplication.Controllers
             sub_district sub_district = db.sub_district.Find(id);
             db.sub_district.Remove(sub_district);
             db.SaveChanges();
+           // return RedirectToAction("Index");
             return RedirectToAction("Details", new RouteValueDictionary(new { controller = "Districts", action = "Details", Id = sub_district.district_id }));
-            //return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
